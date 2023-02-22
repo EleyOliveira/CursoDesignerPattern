@@ -8,17 +8,14 @@ IImposto icms = new ICMS();
 IImposto ICCC = new ICCC();
 
 Orcamento orcamento = new Orcamento(500.00);
-
-CalculadorDeImpostos calculador = new CalculadorDeImpostos();
-calculador.RealizaCalculo(orcamento, icms);
-calculador.RealizaCalculo(orcamento, iss);
-calculador.RealizaCalculo(orcamento, ICCC);
+Console.WriteLine(iss.Calcula(orcamento));
+Console.WriteLine(icms.Calcula(orcamento));
+Console.WriteLine(ICCC.Calcula(orcamento));
 
 orcamento = new Orcamento(2000);
-calculador.RealizaCalculo(orcamento, ICCC);
+Console.WriteLine(ICCC.Calcula(orcamento));
 
 orcamento = new Orcamento(4000);
-calculador.RealizaCalculo(orcamento, ICCC);
-
+Console.WriteLine(ICCC.Calcula(orcamento));
 
 Console.ReadKey();
