@@ -14,6 +14,7 @@ namespace CursoDesignerPattern
         public Orcamento(double valor)
         {
             Valor = valor;
+            Itens = new List<Item>();
         }
 
         public void AdicionaItem(Item item)

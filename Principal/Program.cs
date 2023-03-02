@@ -19,12 +19,12 @@ Console.WriteLine("Hello, World!");
 //Console.WriteLine(ICCC.Calcula(orcamento));
 
 //Console.WriteLine("Desconto");
-Orcamento orcamento = new Orcamento(200);
+Orcamento orcamento = new Orcamento(510);
 IDesconto di = new DescontoQuantidadeItem();
 IDesconto dv = new DescontoValorCompra();
 IDesconto sd = new SemDesconto();
 
-for (int i = 0; i < 10; i++)
+for (int i = 0; i < 2; i++)
 {
     Item item = new Item($"Borracha {i + 1}", 5 + i);
     orcamento.AdicionaItem(item);
