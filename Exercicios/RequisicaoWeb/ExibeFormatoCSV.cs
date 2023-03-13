@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 namespace RequisicaoWeb
 {
     public class ExibeFormatoCSV : IFormato
-    {
-        public IFormato Proxima { get; set; }
+    {      
 
-        private readonly IFormato _proxFormato;
+        private readonly IFormato? _proxFormato;
         public ExibeFormatoCSV(IFormato proxformato)
         {
             _proxFormato = proxformato;
+        }
+
+        public ExibeFormatoCSV() 
+        {
+            _proxFormato = null;        
         }
 
         public string Formatar(Conta conta, Requisicao requisicao)
@@ -22,8 +26,12 @@ namespace RequisicaoWeb
             {
                 return $"Nome: {conta.Nome};Saldo: {conta.Saldo} ";
             }
-            else
+            else if (_proxFormato != null)
+            {
                 return _proxFormato.Formatar(conta, requisicao);
+            }
+            else
+                return "Formato Inválido";
         }
     }
 }
