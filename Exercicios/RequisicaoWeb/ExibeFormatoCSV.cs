@@ -10,6 +10,12 @@ namespace RequisicaoWeb
     {
         public IFormato Proxima { get; set; }
 
+        private readonly IFormato _proxFormato;
+        public ExibeFormatoCSV(IFormato proxformato)
+        {
+            _proxFormato = proxformato;
+        }
+
         public string Formatar(Conta conta, Requisicao requisicao)
         {
             if (EnumFormato.Formato.CSV == requisicao.Formato)
@@ -17,7 +23,7 @@ namespace RequisicaoWeb
                 return $"Nome: {conta.Nome};Saldo: {conta.Saldo} ";
             }
             else
-                return Proxima.Formatar(conta, requisicao);
+                return _proxFormato.Formatar(conta, requisicao);
         }
     }
 }
