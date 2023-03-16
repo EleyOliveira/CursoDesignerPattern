@@ -1,18 +1,20 @@
 ﻿namespace CursoDesignerPattern.TemplateMethod
 {
-    public class ICPP : RegraTaxacaoImposto
+    public class IHIT : RegraTaxacaoImposto
     {
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor > 500;
+            return orcamento.Itens.Where(i => i.Nome == i.Nome).Count() == 2;
         }
+
         protected override double MaximaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.07;
+            return 0;
         }
+
         protected override double MinimaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.05;
+            throw new NotImplementedException();
         }
     }
 }

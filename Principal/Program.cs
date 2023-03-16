@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CursoDesignerPattern;
+using CursoDesignerPattern.TemplateMethod;
 
 Console.WriteLine("Hello, World!");
 
@@ -19,29 +20,31 @@ Console.WriteLine("Hello, World!");
 //Console.WriteLine(ICCC.Calcula(orcamento));
 
 //Console.WriteLine("Desconto");
-Orcamento orcamento = new Orcamento(200);
-IDesconto di = new DescontoQuantidadeItem();
-IDesconto dv = new DescontoValorCompra();
-IDesconto dvc = new DescontoPorVendaCasada();
-IDesconto sd = new SemDesconto();
+//Orcamento orcamento = new Orcamento(200);
+//IDesconto di = new DescontoQuantidadeItem();
+//IDesconto dv = new DescontoValorCompra();
+//IDesconto dvc = new DescontoPorVendaCasada();
+//IDesconto sd = new SemDesconto();
 
-Item item = new Item("Caneta", 20);
-orcamento.AdicionaItem(item);
-item = new Item("Lapiseira", 20);
-orcamento.AdicionaItem(item);
-item = new Item("Caderno", 20);
-orcamento.AdicionaItem(item);
-item = new Item("Caderno", 20);
-orcamento.AdicionaItem(item);
-item = new Item("Caderno", 20);
-orcamento.AdicionaItem(item);
+//Item item = new Item("Caneta", 20);
+//orcamento.AdicionaItem(item);
+//item = new Item("Lapiseira", 20);
+//orcamento.AdicionaItem(item);
 //item = new Item("Caderno", 20);
 //orcamento.AdicionaItem(item);
+//item = new Item("Caderno", 20);
+//orcamento.AdicionaItem(item);
+//item = new Item("Caderno", 20);
+//orcamento.AdicionaItem(item);
+////item = new Item("Caderno", 20);
+////orcamento.AdicionaItem(item);
 
-di.Proximo = dv;
-dv.Proximo = dvc;
-dvc.Proximo = sd;
+//di.Proximo = dv;
+//dv.Proximo = dvc;
+//dvc.Proximo = sd;
 
-Console.WriteLine(di.Desconta(orcamento));
+//Console.WriteLine(di.Desconta(orcamento));
+
+CalculaValorImposto calc = new CalculaValorImposto();
 
 Console.ReadKey();
