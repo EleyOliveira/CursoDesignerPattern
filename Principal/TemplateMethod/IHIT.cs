@@ -4,17 +4,26 @@
     {
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Itens.Where(i => i.Nome == i.Nome).Count() == 2;
+            return DescobreItemDuplicado(orcamento);                              
+        }
+
+        private bool DescobreItemDuplicado(Orcamento orcamento)
+        {
+            return orcamento.Itens
+                .GroupBy(i => new { i.Nome })
+                .Where(g => g.Count() > 1)
+                .Sum(g => g.Count()) == 2;
         }
 
         protected override double MaximaTaxacao(Orcamento orcamento)
         {
-            return 0;
+            return orcamento.Valor * 0.13 + 100;
         }
 
         protected override double MinimaTaxacao(Orcamento orcamento)
         {
-            throw new NotImplementedException();
+            return orcamento.Valor * (orcamento.Itens.Count() * 0.01);
         }
+        
     }
 }
