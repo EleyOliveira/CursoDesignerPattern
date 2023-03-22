@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CursoDesignerPattern;
 using CursoDesignerPattern.TemplateMethod;
+using CursoDesignerPattern.TemplateMethod.Relatorio;
 
 Console.WriteLine("Hello, World!");
 
@@ -45,6 +46,8 @@ Console.WriteLine("Hello, World!");
 
 //Console.WriteLine(di.Desconta(orcamento));
 
-CalculaValorImposto calc = new CalculaValorImposto();
+//CalculaValorImposto calc = new CalculaValorImposto();
+
+ImprimeRelatorio relatorio = new ImprimeRelatorio();
 
 Console.ReadKey();

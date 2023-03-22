@@ -4,7 +4,7 @@
     {
         public string Imprimir (List<Conta> contas) 
         { 
-            return Cabecalho() + "/n" + Corpo(contas) + "/n" + Rodape(); 
+            return Cabecalho() + "\n\n" + Corpo(contas) + "\n\n" + Rodape(); 
         }
 
         protected abstract string Cabecalho();

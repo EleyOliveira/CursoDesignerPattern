@@ -9,7 +9,14 @@
 
         protected override string Corpo(List<Conta> contas)
         {
-            return "";
+            string textoCorpo = "";
+
+            contas.ForEach(delegate (Conta conta) 
+            {
+                textoCorpo += $"Titular: {conta.Titular} - Saldo: {conta.Saldo} \n"; 
+            });
+
+            return textoCorpo;
         }
 
         protected override string Rodape()
