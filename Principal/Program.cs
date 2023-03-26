@@ -46,8 +46,8 @@ Console.WriteLine("Hello, World!");
 
 //Console.WriteLine(di.Desconta(orcamento));
 
-//CalculaValorImposto calc = new CalculaValorImposto();
+CalculaValorImposto calc = new CalculaValorImposto();
 
-ImprimeRelatorio relatorio = new ImprimeRelatorio();
+//ImprimeRelatorio relatorio = new ImprimeRelatorio();
 
 Console.ReadKey();

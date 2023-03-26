@@ -1,4 +1,6 @@
-﻿namespace CursoDesignerPattern.TemplateMethod
+﻿using CursoDesignerPattern.Decorator;
+
+namespace CursoDesignerPattern.TemplateMethod
 {
     public class CalculaValorImposto
     {
@@ -11,13 +13,17 @@
             orcamento.Itens.Add(new Item("blabla", 150));
 
 
-            ICPP iCPP = new ICPP();
-            IKCV iKCV = new IKCV();
-            IHIT iHIT = new IHIT();
-            
+            ICPP iCPP = new ();
+            IKCV iKCV = new ();
+            IHIT iHIT = new (new IKCV());
+            ISS iISS = new(new ICCC(new ICMS()));
+            ImpostoAlto impostoAlto = new(new ISS());
+
             Console.WriteLine($"O valor do imposto ICPP {iCPP.Calcula(orcamento)}");
             Console.WriteLine($"O valor do imposto IKCV {iKCV.Calcula(orcamento)}");
             Console.WriteLine($"O valor do imposto IHIT {iHIT.Calcula(orcamento)}");
+            Console.WriteLine($"O valor do imposto ISS {iISS.Calcula(orcamento)}");
+            Console.WriteLine($"O valor do imposto alto {impostoAlto.Calcula(orcamento)}");
         }
     }
 }

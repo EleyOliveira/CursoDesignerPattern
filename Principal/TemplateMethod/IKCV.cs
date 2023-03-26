@@ -2,6 +2,10 @@
 {
     public class IKCV : RegraTaxacaoImposto
     {
+        public IKCV(Imposto imposto) : base(imposto) { }
+
+        public IKCV() : base() { }
+        
         protected override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
             return orcamento.Valor > 500 && ValordeItemSuperior(orcamento); 
@@ -14,12 +18,12 @@
 
         protected override double MaximaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.1;
+            return orcamento.Valor * 0.1 + CalculoImpostoComposto(orcamento);
         }
 
         protected override double MinimaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.06;
+            return orcamento.Valor * 0.06 + CalculoImpostoComposto(orcamento);
         }
     }
 }

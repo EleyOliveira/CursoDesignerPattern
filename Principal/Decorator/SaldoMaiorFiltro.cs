@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CursoDesignerPattern
+namespace CursoDesignerPattern.Decorator
 {
-    public interface IImposto
+    internal class SaldoMaiorFiltro
     {
-        double Calcula(Orcamento orcamento);
     }
 }

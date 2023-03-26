@@ -1,8 +1,12 @@
 ﻿namespace CursoDesignerPattern.TemplateMethod
 {
-    public abstract class RegraTaxacaoImposto : IImposto
+    public abstract class RegraTaxacaoImposto : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        protected RegraTaxacaoImposto(Imposto imposto) : base(imposto) { }
+
+        protected RegraTaxacaoImposto() : base() { }
+
+        public override double Calcula(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento)) 
             {
