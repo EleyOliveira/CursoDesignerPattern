@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CursoDesignerPattern.TemplateMethod.Relatorio;
 
 namespace CursoDesignerPattern.Decorator
 {
-    internal class SaldoMaiorFiltro
+    public class SaldoMaiorFiltro : Filtro
     {
+        public SaldoMaiorFiltro() : base() { }
+
+        public SaldoMaiorFiltro(Filtro filtro) : base(filtro) { }   
+
+        public override IList<Conta> Filtra(IList<Conta> contas)
+        {
+            return AcrescentaContaNovoFiltro(contas.Where(c => c.Saldo > 500000).ToList());
+        }
     }
 }

@@ -4,9 +4,13 @@ namespace CursoDesignerPattern.Decorator
 {
     public class SaldoMenorFiltro : Filtro
     {
+        public SaldoMenorFiltro() : base() { }
+
+        public SaldoMenorFiltro(Filtro filtro) : base(filtro) { }
+
         public override IList<Conta> Filtra(IList<Conta> contas)
         {
-            return contas.Where(c => c.Saldo < 100).ToList();
+            return AcrescentaContaNovoFiltro(contas.Where(c => c.Saldo < 100).ToList());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace CursoDesignerPattern.Decorator
 
         protected IList<Conta> AcrescentaContaNovoFiltro (IList<Conta> contas)
         {
-            return NovoFiltro == null ? new List<Conta>() : NovoFiltro.Filtra(contas); 
+            return NovoFiltro == null ? contas : NovoFiltro.Filtra(contas); 
             
         }
 
