@@ -8,9 +8,11 @@ namespace CursoDesignerPattern.Decorator
 
         public SaldoMaiorFiltro(Filtro filtro) : base(filtro) { }   
 
-        public override IList<Conta> Filtra(IList<Conta> contas)
+        public override List<Conta> Filtra(List<Conta> contas)
         {
-            return AcrescentaContaNovoFiltro(contas.Where(c => c.Saldo > 500000).ToList());
+            List<Conta> contaSuspeita = new List<Conta>();
+            contaSuspeita = contas.Where(c => c.Saldo > 500000).ToList();
+            return AcrescentaContaNovoFiltro(contas, contaSuspeita);
         }
     }
 }

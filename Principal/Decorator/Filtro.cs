@@ -4,7 +4,7 @@ namespace CursoDesignerPattern.Decorator
 {
     public abstract class Filtro
     {
-        private Filtro NovoFiltro { get; set; }
+        private Filtro NovoFiltro { get; set; }        
 
         protected Filtro(Filtro novoFiltro)
         {
@@ -15,12 +15,20 @@ namespace CursoDesignerPattern.Decorator
             NovoFiltro = null;
         }
 
-        protected IList<Conta> AcrescentaContaNovoFiltro (IList<Conta> contas)
+        protected List<Conta> AcrescentaContaNovoFiltro (List<Conta> contas, List<Conta> contasAnalisar)
         {
-            return NovoFiltro == null ? contas : NovoFiltro.Filtra(contas); 
-            
+            if (NovoFiltro == null)
+            {
+                return contasAnalisar;
+            }
+            else 
+            {
+                contasAnalisar.AddRange(NovoFiltro.Filtra(contas));
+                return contasAnalisar;
+            }           
         }
+        public abstract List<Conta> Filtra(List<Conta> contas);
 
-        public abstract IList<Conta> Filtra(IList<Conta> contas);
+
     }
 }

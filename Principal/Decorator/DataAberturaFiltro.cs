@@ -9,9 +9,11 @@ namespace CursoDesignerPattern.Decorator
 
         public DataAberturaFiltro(Filtro filtro) : base(filtro) { }
 
-        public override IList<Conta> Filtra(IList<Conta> contas)
+        public override List<Conta> Filtra(List<Conta> contas)
         {
-            return AcrescentaContaNovoFiltro(contas.Where(c => c.DataAbertura.Month == DateTime.Now.Month).ToList());
+            List<Conta> contaSuspeita = new List<Conta>();
+            contaSuspeita = contas.Where(c => c.DataAbertura.Month == DateTime.Now.Month).ToList();
+            return AcrescentaContaNovoFiltro(contas, contaSuspeita);            
         }
     }
 }
