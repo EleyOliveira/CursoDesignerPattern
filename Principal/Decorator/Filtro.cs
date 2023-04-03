@@ -28,7 +28,5 @@ namespace CursoDesignerPattern.Decorator
             }           
         }
         public abstract List<Conta> Filtra(List<Conta> contas);
-
-
     }
 }

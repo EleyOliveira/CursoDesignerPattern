@@ -12,7 +12,8 @@ namespace CursoDesignerPattern.Decorator
         public override List<Conta> Filtra(List<Conta> contas)
         {
             List<Conta> contaSuspeita = new List<Conta>();
-            contaSuspeita = contas.Where(c => c.DataAbertura.Month == DateTime.Now.Month).ToList();
+            contaSuspeita = contas.Where(c => c.DataAbertura.Month == DateTime.Now.Month && 
+                c.DataAbertura.Year == DateTime.Now.Year).ToList();
             return AcrescentaContaNovoFiltro(contas, contaSuspeita);            
         }
     }
