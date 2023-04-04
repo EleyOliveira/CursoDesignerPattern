@@ -2,6 +2,9 @@
 {
     public interface IEstadoOrcamento
     {
-        double ConcedeDesconto(Orcamento orcamento);
+        void ConcedeDesconto(Orcamento orcamento);
+        void Aprova(Orcamento orcamento);
+        void Reprova(Orcamento orcamento);
+        void Finaliza(Orcamento orcamento);
     }
 }

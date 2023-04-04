@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoDesignerPattern.State;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ namespace CursoDesignerPattern
 {
     public class Orcamento
     {
-        public double Valor { get; private set; }
-        public IList<Item> Itens { get; private set; }
-                
+        public double Valor { get; set; }
+        public IList<Item> Itens { get; private set; }        
+        public IEstadoOrcamento Estado { get; set; }
+
         public Orcamento(double valor)
         {
             Valor = valor;
