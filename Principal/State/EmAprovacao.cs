@@ -15,7 +15,7 @@ namespace CursoDesignerPattern.State
 
         public void ConcedeDesconto(Orcamento orcamento)
         {
-            orcamento.Valor = orcamento.Valor * 0.05;
+            orcamento.Valor -= orcamento.Valor * 0.05;
         }
 
         public void Finaliza(Orcamento orcamento)

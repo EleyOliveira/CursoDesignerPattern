@@ -17,6 +17,7 @@ namespace CursoDesignerPattern
         {
             Valor = valor;
             Itens = new List<Item>();
+            Estado = new EmAprovacao();
         }
 
         public void AdicionaItem(Item item)
