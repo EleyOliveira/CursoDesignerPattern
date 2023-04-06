@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CursoDesignerPattern.State
+﻿namespace CursoDesignerPattern.State
 {
     public class EmAprovacao : IEstadoOrcamento
     {
+        private bool _descontoConcedido = false;
         public void Aprova(Orcamento orcamento)
         {
             orcamento.Estado = new Aprovado();
@@ -15,7 +10,15 @@ namespace CursoDesignerPattern.State
 
         public void ConcedeDesconto(Orcamento orcamento)
         {
-            orcamento.Valor -= orcamento.Valor * 0.05;
+            if (_descontoConcedido == false)
+            {
+                orcamento.Valor -= orcamento.Valor * 0.05;
+                _descontoConcedido = true;
+            }   
+            else
+                throw new Exception("Desconto já foi concedido");
+            
+            
         }
 
         public void Finaliza(Orcamento orcamento)
