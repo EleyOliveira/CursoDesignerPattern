@@ -1,4 +1,5 @@
-﻿namespace CursoDesignerPattern.TemplateMethod.Relatorio
+﻿using CursoDesignerPattern.State;
+namespace CursoDesignerPattern.TemplateMethod.Relatorio
 {
     public class Conta
     {
@@ -8,5 +9,7 @@
         public double Saldo { get; set; }
 
         public DateTime DataAbertura { get; set; }
+        public IEstadoConta Estado { get; set; } 
+        
     }
 }

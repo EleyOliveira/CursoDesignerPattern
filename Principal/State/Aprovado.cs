@@ -16,8 +16,8 @@
                 orcamento.Valor -= orcamento.Valor * 0.02;
                 _descontoConcedido = true;
             }
-            throw new Exception("Desconto já concedido");
-           
+            else
+                throw new Exception("Desconto já concedido");           
         }
 
         public void Finaliza(Orcamento orcamento)
