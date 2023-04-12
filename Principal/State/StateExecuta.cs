@@ -6,7 +6,12 @@ namespace CursoDesignerPattern.State
     public class StateExecuta
     {
         public StateExecuta() 
-        { 
+        {
+            Conta conta = new()
+            {
+                Saldo = -100
+            };
+
             try 
             { 
                 //Orcamento orcamento = new Orcamento(1000);
@@ -15,28 +20,31 @@ namespace CursoDesignerPattern.State
                 //orcamento.Estado.Aprova(orcamento);
                 //orcamento.Estado.ConcedeDesconto(orcamento);
                 //orcamento.Estado.ConcedeDesconto(orcamento);
-                //Console.WriteLine($"Valor com desconto {orcamento.Valor}");
+                //Console.WriteLine($"Valor com desconto {orcamento.Valor}");                
 
-                Conta conta = new()
-                {
-                    Saldo = 100                    
-                };
-
-                if (conta.Saldo >= 0)
-                {
-
+                if (conta.Saldo > 0)
+                {                    
+                    conta.Estado = new Positiva();
+                    conta.Estado.Deposito(conta, 200);
+                    conta.Estado.Saque(conta, 80);                    
                 }
-
-                Positiva positiva = new Positiva();                
-                positiva.Deposito(conta, 200);
-                positiva.Saque(conta, 80);
-                Console.WriteLine($"O saldo da conta é {conta.Saldo}");
-
+                else if (conta.Saldo < 0) 
+                {                     
+                    conta.Estado = new Negativa();
+                    conta.Estado.Deposito(conta, 50);
+                    conta.Estado.Deposito(conta, 50);
+                    conta.Estado.Deposito(conta, 200);
+                    conta.Estado.Saque(conta, 200);
+                }
             } 
             catch (Exception e) 
             { 
                 Console.WriteLine (e.ToString());
-            } 
+            }
+            finally 
+            {
+                Console.WriteLine($"O saldo da conta é {conta.Saldo} e Situação {conta.Estado.ToString()}");
+            }     
 
         }
     }
