@@ -25,16 +25,16 @@ namespace CursoDesignerPattern.State
                 if (conta.Saldo > 0)
                 {                    
                     conta.Estado = new Positiva();
-                    conta.Estado.Deposito(conta, 200);
-                    conta.Estado.Saque(conta, 80);                    
+                    conta.Deposita(200);
+                    conta.Saca(80);                    
                 }
                 else if (conta.Saldo < 0) 
                 {                     
                     conta.Estado = new Negativa();
-                    conta.Estado.Deposito(conta, 50);
-                    conta.Estado.Deposito(conta, 50);
-                    conta.Estado.Deposito(conta, 200);
-                    conta.Estado.Saque(conta, 200);
+                    conta.Deposita(50);
+                    conta.Deposita(50);
+                    conta.Deposita(200);
+                    conta.Saca(80);                    
                 }
             } 
             catch (Exception e) 

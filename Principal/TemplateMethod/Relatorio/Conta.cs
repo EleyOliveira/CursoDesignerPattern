@@ -9,7 +9,17 @@ namespace CursoDesignerPattern.TemplateMethod.Relatorio
         public double Saldo { get; set; }
 
         public DateTime DataAbertura { get; set; }
-        public IEstadoConta Estado { get; set; } 
+        public IEstadoConta Estado;
+
+        public void Saca(double valor)
+        {
+            Estado.Saque(this, valor);
+        }
+
+        public void Deposita(double valor) 
+        { 
+            Estado.Deposito(this, valor);
+        }
         
     }
 }
