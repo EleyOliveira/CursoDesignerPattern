@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CursoDesignerPattern.Builder
+﻿namespace CursoDesignerPattern.Builder
 {
     public class NotaFiscal
     {
-        public NotaFiscal(string razaoSocial, string cnpj, double valorBruto, double valorImposto, DateTime dataEmissao, string observacoes)
+        public NotaFiscal(string razaoSocial, string cnpj, double valorBruto, double valorImposto, DateTime dataEmissao, string observacoes, List<ItemNota> itens)
         {
             RazaoSocial = razaoSocial;
             CNPJ = cnpj;
@@ -16,6 +10,7 @@ namespace CursoDesignerPattern.Builder
             ValorImposto = valorImposto;
             DataEmissao = dataEmissao;
             Observacoes = observacoes;
+            Itens = itens;
         }
 
         public string RazaoSocial { get; set; }
@@ -24,6 +19,6 @@ namespace CursoDesignerPattern.Builder
         public double ValorImposto { get; set; }
         public DateTime DataEmissao { get; set; }
         public string Observacoes { get; set; }
-        public IEnumerable<ItemNota> itens { get; set; }        
+        public IEnumerable<ItemNota> Itens { get; set; }        
     }
 }

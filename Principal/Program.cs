@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CursoDesignerPattern;
+using CursoDesignerPattern.Builder;
 using CursoDesignerPattern.Decorator;
 using CursoDesignerPattern.State;
 using CursoDesignerPattern.TemplateMethod;
@@ -52,6 +53,8 @@ Console.WriteLine("Hello, World!");
 //ImprimeRelatorio relatorio = new ImprimeRelatorio();
 //ExecutaFiltro executaFiltro = new ();
 
-StateExecuta stateExecuta = new StateExecuta();
+//StateExecuta stateExecuta = new StateExecuta();
+
+MontaNotaFiscal montaNotaFiscal = new MontaNotaFiscal();
 
 Console.ReadKey();

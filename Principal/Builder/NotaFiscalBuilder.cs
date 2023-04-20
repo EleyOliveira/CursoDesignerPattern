@@ -8,49 +8,56 @@ namespace CursoDesignerPattern.Builder
 {
     public class NotaFiscalBuilder
     {
-        private string razaoSocial;
-        private string cnpj;
-        private double valorBruto;
-        private double valorImposto;
-        private DateTime dataEmissao;
-        private string observacoes;
+        private String RazaoSocial { get; set; }
+        private String CNPJ { get; set; }        
+        private double ValorBruto { get; set; }
+        private double ValorImposto { get; set; }
+        private DateTime DataEmissao { get; set; }
+        private String Observacoes { get; set; }
 
-        public NotaFiscalBuilder RazaoSocial(string razaoSocial)
+        private List<ItemNota> itens = new();
+
+        public NotaFiscalBuilder InformaRazaoSocial(string razaoSocial)
         {
-            this.razaoSocial = razaoSocial;
+            this.RazaoSocial = razaoSocial;
             return this;
         }
 
-        public NotaFiscalBuilder CNPJ(string cnpj)
+        public NotaFiscalBuilder InformaCNPJ(string cnpj)
         {
-            this.cnpj = cnpj;
+            this.CNPJ = cnpj;
+            return this;
+        }
+        
+        public NotaFiscalBuilder DataAtual() 
+        {
+            this.DataEmissao = DateTime.Now;
             return this;
         }
 
-        public NotaFiscalBuilder ValorBruto(double valorBruto)
+        public NotaFiscalBuilder InformaObservacoes(string observacoes)
         {
-            this.valorBruto = valorBruto;
+            this.Observacoes = observacoes;
             return this;
         }
 
-        public NotaFiscalBuilder ValorImposto(double valorImposto)
+        public NotaFiscalBuilder AdicionaItem(string descricao, double valor)
         {
-            this.valorImposto = valorImposto;
+            ItemNotaBuilder itemNotaBuilder = new ItemNotaBuilder();
+
+            itemNotaBuilder.InformeDescricao(descricao)
+                .InformeValor(valor);
+
+            itens.Add(itemNotaBuilder.Constroi());
+            ValorBruto += valor;
+            ValorImposto += valor * 0.05;
+
             return this;
         }
 
-        public NotaFiscalBuilder DataEmissao(DateTime dataEmissao) 
+        public NotaFiscal Constroi()
         {
-            this.dataEmissao = dataEmissao;
-            return this;
+            return new NotaFiscal(RazaoSocial, CNPJ, ValorBruto, ValorImposto, DataEmissao, Observacoes, itens);
         }
-
-        public NotaFiscalBuilder Observacoes(string observacoes)
-        {
-            this.observacoes = observacoes;
-            return this;
-        }
-
-
     }
 }
