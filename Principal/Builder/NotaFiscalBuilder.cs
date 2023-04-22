@@ -12,10 +12,15 @@ namespace CursoDesignerPattern.Builder
         private String CNPJ { get; set; }        
         private double ValorBruto { get; set; }
         private double ValorImposto { get; set; }
-        private DateTime DataEmissao { get; set; }
+        private DateTime? DataEmissao { get; set; }
         private String Observacoes { get; set; }
 
         private List<ItemNota> itens = new();
+
+        public NotaFiscalBuilder()
+        {
+            this.DataEmissao = DateTime.Now;
+        }
 
         public NotaFiscalBuilder InformaRazaoSocial(string razaoSocial)
         {
@@ -29,9 +34,9 @@ namespace CursoDesignerPattern.Builder
             return this;
         }
         
-        public NotaFiscalBuilder DataAtual() 
-        {
-            this.DataEmissao = DateTime.Now;
+        public NotaFiscalBuilder NaData(DateTime data) 
+        {            
+            this.DataEmissao = (DateTime)data;
             return this;
         }
 
@@ -56,8 +61,8 @@ namespace CursoDesignerPattern.Builder
         }
 
         public NotaFiscal Constroi()
-        {
-            return new NotaFiscal(RazaoSocial, CNPJ, ValorBruto, ValorImposto, DataEmissao, Observacoes, itens);
+        {            
+            return new NotaFiscal(RazaoSocial, CNPJ, ValorBruto, ValorImposto, (DateTime)DataEmissao, Observacoes, itens);
         }
     }
 }

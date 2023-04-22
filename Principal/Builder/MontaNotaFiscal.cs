@@ -15,7 +15,7 @@ namespace CursoDesignerPattern.Builder
             notaFiscalBuilder.InformaRazaoSocial("Empresa Malucos S.A.")
                 .InformaCNPJ("12.345.678.0009-99")
                 .InformaObservacoes("Essa empresa é muito doida")
-                .DataAtual()
+                .NaData(Convert.ToDateTime("15/02/2022"))
                 .AdicionaItem("muita maluquice", 120)
                 .AdicionaItem("Birutice", 450)
                 .AdicionaItem("Doideira", 380);
@@ -27,6 +27,7 @@ namespace CursoDesignerPattern.Builder
             Console.WriteLine($"Observações: {notaFiscal.Observacoes}");
             Console.WriteLine($"Valor Bruto: {notaFiscal.ValorBruto}");
             Console.WriteLine($"Valor Imposto: {notaFiscal.ValorImposto}");
+            Console.WriteLine($"Data de emissão: {notaFiscal.DataEmissao}");
 
             foreach (var item in notaFiscal.Itens)
             {
