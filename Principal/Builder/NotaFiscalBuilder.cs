@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoDesignerPattern.Observer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,18 @@ namespace CursoDesignerPattern.Builder
 
         private List<ItemNota> itens = new();
 
+        private List<IAcaoPosGeracaoNF> acaoPosGeracaoNFs;
+
         public NotaFiscalBuilder()
         {
             this.DataEmissao = DateTime.Now;
+            acaoPosGeracaoNFs = new();
+        }
+
+        public NotaFiscalBuilder AcrescentaAcaoPosGeracao(IAcaoPosGeracaoNF acaoPosGeracaoNF)
+        {
+            acaoPosGeracaoNFs.Add(acaoPosGeracaoNF);
+            return this;
         }
 
         public NotaFiscalBuilder InformaRazaoSocial(string razaoSocial)
@@ -61,8 +71,14 @@ namespace CursoDesignerPattern.Builder
         }
 
         public NotaFiscal Constroi()
-        {            
-            return new NotaFiscal(RazaoSocial, CNPJ, ValorBruto, ValorImposto, (DateTime)DataEmissao, Observacoes, itens);
+        {   
+            NotaFiscal notaFiscal = new NotaFiscal(RazaoSocial, CNPJ, ValorBruto, ValorImposto, (DateTime)DataEmissao, Observacoes, itens);
+            
+            foreach (var acao in acaoPosGeracaoNFs) 
+            {
+                acao.Executa(notaFiscal);    
+            }
+            return notaFiscal;
         }
     }
 }
