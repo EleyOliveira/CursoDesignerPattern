@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoDesignerPattern.Observer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,9 @@ namespace CursoDesignerPattern.Builder
                 .NaData(Convert.ToDateTime("15/02/2022"))
                 .AdicionaItem("muita maluquice", 120)
                 .AdicionaItem("Birutice", 450)
-                .AdicionaItem("Doideira", 380);
+                .AdicionaItem("Doideira", 380)
+                .AcrescentaAcaoPosGeracao(new GravaBancoDadosNF())
+                .AcrescentaAcaoPosGeracao(new EnviaEmailNF());
 
             NotaFiscal notaFiscal = notaFiscalBuilder.Constroi();
 
