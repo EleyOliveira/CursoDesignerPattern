@@ -21,7 +21,8 @@ namespace CursoDesignerPattern.Builder
                 .AdicionaItem("Birutice", 450)
                 .AdicionaItem("Doideira", 380)
                 .AcrescentaAcaoPosGeracao(new GravaBancoDadosNF())
-                .AcrescentaAcaoPosGeracao(new EnviaEmailNF());
+                .AcrescentaAcaoPosGeracao(new EnviaEmailNF())
+                .AcrescentaAcaoPosGeracao(new MultiplicaValorNF(2.5));
 
             NotaFiscal notaFiscal = notaFiscalBuilder.Constroi();
 
