@@ -55,6 +55,8 @@ Console.WriteLine("Hello, World!");
 
 //StateExecuta stateExecuta = new StateExecuta();
 
-MontaNotaFiscal montaNotaFiscal = new MontaNotaFiscal();
+CursoDesignerPattern.Decorator.Faturas.ExecutaFiltro executaFiltro = new();
+
+//MontaNotaFiscal montaNotaFiscal = new MontaNotaFiscal();
 
 Console.ReadKey();
