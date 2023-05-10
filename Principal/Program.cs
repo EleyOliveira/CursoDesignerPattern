@@ -53,9 +53,9 @@ Console.WriteLine("Hello, World!");
 //ImprimeRelatorio relatorio = new ImprimeRelatorio();
 //ExecutaFiltro executaFiltro = new ();
 
-//StateExecuta stateExecuta = new StateExecuta();
+StateExecuta stateExecuta = new StateExecuta();
 
-CursoDesignerPattern.Decorator.Faturas.ExecutaFiltro executaFiltro = new();
+//CursoDesignerPattern.Decorator.Faturas.ExecutaFiltro executaFiltro = new();
 
 //MontaNotaFiscal montaNotaFiscal = new MontaNotaFiscal();
 

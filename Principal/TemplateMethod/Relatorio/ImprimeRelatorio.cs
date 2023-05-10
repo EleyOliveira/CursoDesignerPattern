@@ -1,4 +1,6 @@
-﻿namespace CursoDesignerPattern.TemplateMethod.Relatorio
+﻿using CursoDesignerPattern.Observer;
+
+namespace CursoDesignerPattern.TemplateMethod.Relatorio
 {
     public class ImprimeRelatorio
     {
@@ -8,7 +10,7 @@
             conta.Titular = "João Primeiro Antes do Segundo";
             conta.Agencia = 12;
             conta.Numero = 210;
-            conta.Saldo = 14578.66;
+            conta.Saldo = 14578.66;            
 
             Conta conta1 = new Conta();
             conta1.Titular = "João Segundo Depois do Primeiro";
@@ -20,7 +22,7 @@
             conta2.Titular = "Kelio dos Santos";
             conta2.Agencia = 26;
             conta2.Numero = 112;
-            conta2.Saldo = 1247895.45;
+            conta2.Saldo = 1247895.45;            
 
             Conta conta3 = new Conta();
             conta3.Titular = "Sousitones Vasconcelos";

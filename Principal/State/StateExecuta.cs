@@ -1,4 +1,5 @@
-﻿using CursoDesignerPattern.TemplateMethod.Relatorio;
+﻿using CursoDesignerPattern.Observer;
+using CursoDesignerPattern.TemplateMethod.Relatorio;
 using System.ComponentModel;
 
 namespace CursoDesignerPattern.State
@@ -9,18 +10,25 @@ namespace CursoDesignerPattern.State
         {
             Conta conta = new()
             {
-                Saldo = -100
+                Saldo = -100,
+                Agencia = 1,
+                Numero = 02547-55
             };
 
             try 
-            { 
+            {
                 //Orcamento orcamento = new Orcamento(1000);
                 //orcamento.Estado.ConcedeDesconto(orcamento);
                 ////orcamento.Estado.ConcedeDesconto(orcamento);
                 //orcamento.Estado.Aprova(orcamento);
                 //orcamento.Estado.ConcedeDesconto(orcamento);
                 //orcamento.Estado.ConcedeDesconto(orcamento);
-                //Console.WriteLine($"Valor com desconto {orcamento.Valor}");                
+                //Console.WriteLine($"Valor com desconto {orcamento.Valor}");
+                //
+
+                conta.AcrescentaAcaoPosDeposito(new AuditoriaConta());
+                conta.AcrescentaAcaoPosDeposito(new FinanceiroConta());
+                conta.AcrescentaAcaoPosDeposito(new AgenciaConta());
 
                 if (conta.Saldo > 0)
                 {                    

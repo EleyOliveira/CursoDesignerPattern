@@ -1,4 +1,5 @@
-﻿using CursoDesignerPattern.State;
+﻿using CursoDesignerPattern.Observer;
+using CursoDesignerPattern.State;
 namespace CursoDesignerPattern.TemplateMethod.Relatorio
 {
     public class Conta
@@ -11,6 +12,18 @@ namespace CursoDesignerPattern.TemplateMethod.Relatorio
         public DateTime DataAbertura { get; set; }
         public IEstadoConta Estado;
 
+        private List<IAcaoPosDeposito> acaoPosDepositos;
+
+        public Conta()
+        {
+            acaoPosDepositos = new();
+        }
+
+        public void AcrescentaAcaoPosDeposito(IAcaoPosDeposito acaoposDeposito)
+        {
+            acaoPosDepositos.Add(acaoposDeposito);
+        }
+
         public void Saca(double valor)
         {
             Estado.Saque(this, valor);
@@ -19,6 +32,11 @@ namespace CursoDesignerPattern.TemplateMethod.Relatorio
         public void Deposita(double valor) 
         { 
             Estado.Deposito(this, valor);
+
+            foreach (var acao in acaoPosDepositos)
+            {
+                acao.Executa(this);
+            }
         }
         
     }
