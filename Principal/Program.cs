@@ -4,6 +4,7 @@ using CursoDesignerPattern.Builder;
 using CursoDesignerPattern.Decorator;
 using CursoDesignerPattern.State;
 using CursoDesignerPattern.TemplateMethod;
+using CursoDesignerPattern.TemplateMethod.Algoritmo;
 using CursoDesignerPattern.TemplateMethod.Relatorio;
 
 Console.WriteLine("Hello, World!");
@@ -53,10 +54,12 @@ Console.WriteLine("Hello, World!");
 //ImprimeRelatorio relatorio = new ImprimeRelatorio();
 //ExecutaFiltro executaFiltro = new ();
 
-StateExecuta stateExecuta = new StateExecuta();
+//StateExecuta stateExecuta = new StateExecuta();
 
 //CursoDesignerPattern.Decorator.Faturas.ExecutaFiltro executaFiltro = new();
 
 //MontaNotaFiscal montaNotaFiscal = new MontaNotaFiscal();
+
+ExecutaListagem executaListagem = new ExecutaListagem();
 
 Console.ReadKey();
