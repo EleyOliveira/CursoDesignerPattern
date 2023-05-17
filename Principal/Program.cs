@@ -3,6 +3,7 @@ using CursoDesignerPattern;
 using CursoDesignerPattern.Builder;
 using CursoDesignerPattern.Decorator;
 using CursoDesignerPattern.State;
+using CursoDesignerPattern.State.Contrato;
 using CursoDesignerPattern.TemplateMethod;
 using CursoDesignerPattern.TemplateMethod.Algoritmo;
 using CursoDesignerPattern.TemplateMethod.Relatorio;
@@ -60,6 +61,6 @@ Console.WriteLine("Hello, World!");
 
 //MontaNotaFiscal montaNotaFiscal = new MontaNotaFiscal();
 
-ExecutaListagem executaListagem = new ExecutaListagem();
+StateContratoExecuta stateContratoExecuta = new StateContratoExecuta();
 
 Console.ReadKey();

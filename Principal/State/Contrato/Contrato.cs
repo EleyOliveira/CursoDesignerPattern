@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 namespace CursoDesignerPattern.State.Contrato
 {
     internal class Contrato
-    {
+    { 
+        public Contrato() 
+        {
+            Estado = null;
+        }
         public string Numero {get; set;}
-        public IEstadoContrato Estado { get; set;}
+        public EstadoContrato? Estado { get; set; }
     }
 }

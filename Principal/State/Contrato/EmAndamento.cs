@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CursoDesignerPattern.State.Contrato
+﻿namespace CursoDesignerPattern.State.Contrato
 {
-    internal class EmAndamento : IEstadoContrato
+    internal class EmAndamento : EstadoContrato
     {
-        public void Assinado(Contrato contrato)
+        public override void Ajusta(Contrato contrato)
         {
-            throw new NotImplementedException();
-        }
+            Validar(contrato.Estado);
+            Console.WriteLine("Contrato ajustado!!!");
+            contrato.Estado = this;
+        }        
 
-        public void NaoAssinado(Contrato contrato)
+        public override void Altera(Contrato contrato)
         {
-            throw new NotImplementedException();
-        }
+            Validar(contrato.Estado);
+            Console.WriteLine("Contrato alterado!!!");
+            contrato.Estado = this;
+        }       
 
-        void IEstadoContrato.EmAndamento(Contrato contrato)
+        public override void ConcedeDesconto(Contrato contrato)
         {
-            throw new NotImplementedException();
-        }
+            Validar(contrato.Estado);
+            Console.WriteLine("Desconto aplicado");
+            contrato.Estado = this;
+        }        
     }
 }
