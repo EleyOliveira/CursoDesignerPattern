@@ -5,22 +5,22 @@
         public override void Ajusta(Contrato contrato)
         {
             Validar(contrato.Estado);
-            Console.WriteLine("Contrato ajustado!!!");
-            contrato.Estado = this;
+            ExibeMensagem("Contrato ajustado!!!");
+            AlteraEstado(contrato, this);
         }
 
         public override void Altera(Contrato contrato)
         {
             Validar(contrato.Estado);
-            Console.WriteLine("Contrato alterado!!!");
-            contrato.Estado = this;
+            ExibeMensagem("Contrato alterado!!!");
+            AlteraEstado(contrato, this);
         }
 
         public override void ConcedeDesconto(Contrato contrato)
         {
             Validar(contrato.Estado);
-            Console.WriteLine("Desconto aplicado");
-            contrato.Estado = this;
-        }        
+            ExibeMensagem("Desconto concedido!!!");
+            AlteraEstado(contrato, this);
+        }
     }
 }
